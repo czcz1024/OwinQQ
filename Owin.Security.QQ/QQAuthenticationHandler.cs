@@ -122,8 +122,8 @@ namespace Owin.Security.QQ
                 string tokenEndpoint = "https://graph.qq.com/oauth2.0/token?grant_type=authorization_code&client_id={0}&client_secret={1}&code={2}&redirect_uri={3}";
                 var url = string.Format(
                     tokenEndpoint,
-                    Uri.EscapeDataString(this.Options.ApiID),
-                    Uri.EscapeDataString(this.Options.ApiKey),
+                    Uri.EscapeDataString(this.Options.AppID),
+                    Uri.EscapeDataString(this.Options.AppKey),
                     Uri.EscapeDataString(code), Uri.EscapeDataString("http://"+this.Request.Host));
                 HttpResponseMessage tokenResponse = await this._httpClient.GetAsync(url, this.Request.CallCancelled);
                 tokenResponse.EnsureSuccessStatusCode();
@@ -144,7 +144,7 @@ namespace Owin.Security.QQ
                 var nameurl = string.Format(
                     nameurltemp,
                     Uri.EscapeDataString(accesstoken),
-                    Uri.EscapeDataString(this.Options.ApiID),
+                    Uri.EscapeDataString(this.Options.AppID),
                     Uri.EscapeDataString(openid));
                 var nameResponse = await this._httpClient.GetAsync(nameurl, this.Request.CallCancelled);
                 nameResponse.EnsureSuccessStatusCode();
@@ -204,7 +204,7 @@ namespace Owin.Security.QQ
                 var protector=this.Options.StateDataFormat.Protect(properties);
                 var url = string.Format(
                     loginRedirectUrlFormat,
-                    Uri.EscapeDataString(this.Options.ApiID),
+                    Uri.EscapeDataString(this.Options.AppID),
                     Uri.EscapeDataString(BuildReturnTo(protector)));
                 this.Response.StatusCode = 302;
                 this.Response.Headers.Set("Location", url);
