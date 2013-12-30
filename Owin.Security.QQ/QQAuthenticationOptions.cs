@@ -18,7 +18,13 @@
         public IQQAuthenticationProvider Provider { get; set; }
 
         public QQAuthenticationOptions()
-            : base("QQ")
+            : this("QQ")
+        {
+            
+        }
+
+        public QQAuthenticationOptions(string authenticationType)
+            : base(authenticationType)
         {
             this.Description.Caption = "QQ User";
             CallbackPath = "/signin-QQ";
