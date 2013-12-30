@@ -16,11 +16,11 @@ namespace Owin
             return app;
         }
 
-        public static IAppBuilder UseQQAuthentication(this IAppBuilder app, string apiID,string apiKey)
+        public static IAppBuilder UseQQAuthentication(this IAppBuilder app, string appId,string appKey)
         {
             return app.UseQQAuthentication(new QQAuthenticationOptions { 
-                ApiID=apiID,
-                ApiKey=apiKey,
+                AppID=appId,
+                AppKey=appKey,
             });
         }
     }

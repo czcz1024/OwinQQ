@@ -5,9 +5,9 @@
     public class QQAuthenticationOptions:AuthenticationOptions
     {
         public ISecureDataFormat<AuthenticationProperties> StateDataFormat { get; set; }
-        public string ApiID { get; set; }
+        public string AppID { get; set; }
 
-        public string ApiKey { get; set; }
+        public string AppKey { get; set; }
 
         public string CallbackPath { get; set; }
 
