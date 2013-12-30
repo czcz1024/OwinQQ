@@ -126,7 +126,6 @@ namespace Owin.Security.Weibo
                                 });
                 this.GenerateCorrelationId(properties);
 
-                //var loginRedirectUrlFormat = "https://graph.qq.com/oauth2.0/authorize?client_id={0}&response_type=code&redirect_uri={1}";
                 var loginRedirectUrlFormat = "https://api.weibo.com/oauth2/authorize?client_id={0}&redirect_uri={1}&response_type=code&state={2}";
                 var protector = this.Options.StateDataFormat.Protect(properties);
                 var url = string.Format(
